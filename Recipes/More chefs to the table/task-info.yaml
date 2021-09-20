@@ -22,29 +22,6 @@ files:
     management.endpoints.web.exposure.include=*
     management.endpoint.shutdown.enabled=true
   learner_created: false
-- name: build.gradle
-  visible: true
-  text: |
-    plugins {
-        id 'java'
-        id 'org.springframework.boot' version '2.3.1.RELEASE'
-        id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    }
-
-    sourceCompatibility = 11
-
-    repositories {
-        mavenCentral()
-    }
-
-    sourceSets.main.resources.srcDirs = ["resources"]
-
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-    }
-  learner_created: false
 - name: test/RecipesApplicationTest.java
   visible: false
   text: |
@@ -1036,25 +1013,145 @@ files:
         }
     }
   learner_created: true
-- name: src/recipes/services/RecipeService.java
-  visible: true
-  learner_created: true
 - name: src/recipes/security/BCryptEncoderConfig.java
   visible: true
   learner_created: true
 - name: src/recipes/security/SecurityConfig.java
   visible: true
   learner_created: true
-- name: src/recipes/services/RecipeDetailService.java
-  visible: true
-  learner_created: true
 - name: src/recipes/services/UserDetailService.java
   visible: true
   learner_created: true
+- name: src/recipes/services/RecipeDetailService.java
+  visible: true
+  learner_created: true
+- name: src/recipes/services/imp/RecipeService.java
+  visible: true
+  learner_created: true
+- name: test/recipes/services/RecipeDetailServiceTest.java
+  visible: true
+  learner_created: true
+- name: ./build.gradle
+  visible: true
+  text: |
+    plugins {
+        id 'java'
+        id 'org.springframework.boot' version '2.3.1.RELEASE'
+        id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    }
+
+    sourceCompatibility = 11
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceSets.main.resources.srcDirs = ["resources"]
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/180/stages/921/implement#comment
-status: Solved
+status: Failed
 feedback:
-  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
-    Academy</a> to continue learning.
-  time: Fri, 17 Sep 2021 17:10:24 UTC
+  message: |-
+    Wrong answer in test #16
+
+    PUT /api/recipe/1 should respond with status code 204, responded: 200
+
+    Response body:
+    {&quot;updated&quot;:&quot;NO_CONTENT&quot;}
+
+    Please find below the output of your program during this failed test.
+
+    ---
+
+    .   ____          _            __ _ _
+     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v2.3.1.RELEASE)
+
+    2021-09-20 20:50:21.400  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication on AISIX2 with PID 5092 (started by Windows 10 in D:\Hyperskill\Recipes\Recipes\task)
+    2021-09-20 20:50:21.406  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : No active profile set, falling back to default profiles: default
+    2021-09-20 20:50:23.656  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+    2021-09-20 20:50:23.764  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96ms. Found 2 JPA repository interfaces.
+    2021-09-20 20:50:25.060  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8881 (http)
+    2021-09-20 20:50:25.081  INFO 5092 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2021-09-20 20:50:25.082  INFO 5092 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+    2021-09-20 20:50:25.397  INFO 5092 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2021-09-20 20:50:25.397  INFO 5092 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3888 ms
+    2021-09-20 20:50:25.809  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+    2021-09-20 20:50:26.362  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+    2021-09-20 20:50:26.380  INFO 5092 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:file:../recipes_db&#39;
+    2021-09-20 20:50:26.787  INFO 5092 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
+    2021-09-20 20:50:27.146  INFO 5092 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+    2021-09-20 20:50:27.477  WARN 5092 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+    2021-09-20 20:50:27.503  INFO 5092 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+    2021-09-20 20:50:27.990  INFO 5092 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+    2021-09-20 20:50:27.993  INFO 5092 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@586f5449, org.springframework.security.web.context.SecurityContextPersistenceFilter@71ab03bb, org.springframework.security.web.header.HeaderWriterFilter@7bcb4d45, org.springframework.security.web.authentication.logout.LogoutFilter@4cdc91c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4447af43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72082eeb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cd5a2f4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c73fdc2, org.springframework.security.web.session.SessionManagementFilter@7bafa40f, org.springframework.security.web.access.ExceptionTranslationFilter@128784e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13d697d3]
+    2021-09-20 20:50:28.433  INFO 5092 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+    2021-09-20 20:50:30.293  INFO 5092 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+    2021-09-20 20:50:30.309  INFO 5092 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;
+    2021-09-20 20:50:30.411  INFO 5092 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
+    2021-09-20 20:50:30.510  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;
+    2021-09-20 20:50:30.512  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+    2021-09-20 20:50:31.141  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+    2021-09-20 20:50:31.157  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication in 10.702 seconds (JVM running for 12.117)
+    2021-09-20 20:50:31.836  INFO 5092 --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
+    2021-09-20 20:50:31.836  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
+    2021-09-20 20:50:31.849  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+    2021-09-20 20:50:32.527  WARN 5092 --- [nio-8881-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+    2021-09-20 20:50:32.527 ERROR 5092 --- [nio-8881-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_OB8KQYQQGMEFL0ACO34AKDTPE_INDEX_2 ON PUBLIC.USER(EMAIL) VALUES 1&quot;; SQL statement:
+    insert into user (id, email, password, username) values (null, ?, ?, ?) [23505-200]
+    2021-09-20 20:50:32.978  WARN 5092 --- [nio-8881-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value [Test3@testcom]; codes [Email.user.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@5b906447,.+@.+\..+]; default message [User email is not correct]] ]
+    2021-09-20 20:50:33.009  WARN 5092 --- [nio-8881-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value [Test4test.com]; codes [Email.user.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@5b906447,.+@.+\..+]; default message [User email is not correct]] ]
+    2021-09-20 20:50:33.043  WARN 5092 --- [nio-8881-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected value [Test555]; codes [Size.user.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.password,password]; arguments []; default message [password],2147483647,8]; default message [Password must contain at least eight characters]] ]
+    2021-09-20 20:50:33.123  WARN 5092 --- [nio-8881-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected value [        ]; codes [NotBlank.user.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.password,password]; arguments []; default message [password]]; default message [must not be blank]] ]
+    2021-09-20 20:50:34.843  INFO 5092 --- [     Thread-336] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit &#39;default&#39;
+    2021-09-20 20:50:34.847  INFO 5092 --- [     Thread-336] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService &#39;applicationTaskExecutor&#39;
+    2021-09-20 20:50:34.851  INFO 5092 --- [     Thread-336] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+    2021-09-20 20:50:35.222  INFO 5092 --- [     Thread-336] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+      .   ____          _            __ _ _
+     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v2.3.1.RELEASE)
+
+    2021-09-20 20:50:35.396  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication on AISIX2 with PID 5092 (started by Windows 10 in D:\Hyperskill\Recipes\Recipes\task)
+    2021-09-20 20:50:35.396  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : No active profile set, falling back to default profiles: default
+    2021-09-20 20:50:36.130  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+    2021-09-20 20:50:36.151  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 2 JPA repository interfaces.
+    2021-09-20 20:50:36.770  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8881 (http)
+    2021-09-20 20:50:36.773  INFO 5092 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2021-09-20 20:50:36.775  INFO 5092 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+    2021-09-20 20:50:36.841  INFO 5092 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2021-09-20 20:50:36.841  INFO 5092 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1437 ms
+    2021-09-20 20:50:36.931  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+    2021-09-20 20:50:36.945  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+    2021-09-20 20:50:36.945  INFO 5092 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:file:../recipes_db&#39;
+    2021-09-20 20:50:37.049  INFO 5092 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
+    2021-09-20 20:50:37.062  INFO 5092 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+    2021-09-20 20:50:37.075  INFO 5092 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+    2021-09-20 20:50:37.158  WARN 5092 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+    2021-09-20 20:50:37.207  INFO 5092 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79a1bbd7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fe06343, org.springframework.security.web.header.HeaderWriterFilter@215b8dda, org.springframework.security.web.authentication.logout.LogoutFilter@6cc1c2e5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@24a93d15, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44b1823a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3979e22b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a72d5f0, org.springframework.security.web.session.SessionManagementFilter@4c28b7f2, org.springframework.security.web.access.ExceptionTranslationFilter@470b8825, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@414bf3a6]
+    2021-09-20 20:50:37.451  INFO 5092 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+    2021-09-20 20:50:37.452  INFO 5092 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;
+    2021-09-20 20:50:37.633  INFO 5092 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
+    2021-09-20 20:50:37.659  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;
+    2021-09-20 20:50:37.662  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+    2021-09-20 20:50:37.748  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+    2021-09-20 20:50:37.755  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication in 2.469 seconds (JVM running for 18.711)
+    2021-09-20 20:50:37.764  INFO 5092 --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
+    2021-09-20 20:50:37.765  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
+    2021-09-20 20:50:37.770  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+  time: Mon, 20 Sep 2021 17:50:39 UTC
 record: -1

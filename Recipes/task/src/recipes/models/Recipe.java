@@ -1,8 +1,7 @@
 package recipes.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
+import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -11,6 +10,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
+@Data
 @Table(name = "recipes")
 public class Recipe {
 
@@ -47,6 +47,19 @@ public class Recipe {
     @JsonIgnore
     @Column(name = "author")
     private String author;
+
+    public Recipe(int id, String name, String category, LocalDateTime date,
+                  String description, @Size(min = 1) @NotNull String[] ingredients,
+                  @Size(min = 1) @NotNull String[] directions, String author) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.date = date;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.directions = directions;
+        this.author = author;
+    }
 
     @PrePersist
     public void onCreated() {

@@ -3,24 +3,24 @@ package recipes.models;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.Collections;
 
-@Data
 @Entity
+@Data
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "username",nullable = false, unique = true)
     private String username;
 
-    @Column(unique = true)
+    @Column(name = "email", unique = true)
     @NotNull(message = "User must have an email")
     @Email(regexp = ".+@.+\\..+", message = "User email is not correct")
     private String email;
@@ -29,6 +29,7 @@ public class User implements UserDetails {
     @NotEmpty
     @NotBlank
     @Size(min = 8, message = "Password must contain at least eight characters")
+    @Column(name = "password")
     private String password;
 
     public User() {
