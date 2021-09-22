@@ -23,7 +23,8 @@ subprojects {
 
         testCompileOnly 'org.projectlombok:lombok:1.18.16'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
-    }
+  	testImplementation 'org.mockito:mockito-core:3.12.4'  
+}
 
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import recipes.models.User;
-import recipes.services.UserDetailService;
+import recipes.services.impl.UserServiceImpl;
 import javax.validation.Valid;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -13,10 +13,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 public class UserController {
 
-    private final UserDetailService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserDetailService service) {
+    public UserController(UserServiceImpl service) {
         this.userService = service;
     }
 

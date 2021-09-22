@@ -9,17 +9,17 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import recipes.services.UserDetailService;
+import recipes.services.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletResponse;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final BCryptPasswordEncoder encoder;
-    private final UserDetailService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
     public SecurityConfig(BCryptPasswordEncoder encoder,
-                          UserDetailService userService) {
+                          UserServiceImpl userService) {
         this.encoder = encoder;
         this.userService = userService;
     }

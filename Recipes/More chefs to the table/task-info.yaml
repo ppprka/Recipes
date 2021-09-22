@@ -1019,18 +1019,6 @@ files:
 - name: src/recipes/security/SecurityConfig.java
   visible: true
   learner_created: true
-- name: src/recipes/services/UserDetailService.java
-  visible: true
-  learner_created: true
-- name: src/recipes/services/RecipeDetailService.java
-  visible: true
-  learner_created: true
-- name: src/recipes/services/imp/RecipeService.java
-  visible: true
-  learner_created: true
-- name: test/recipes/services/RecipeDetailServiceTest.java
-  visible: true
-  learner_created: true
 - name: ./build.gradle
   visible: true
   text: |
@@ -1054,104 +1042,367 @@ files:
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
   learner_created: false
+- name: src/recipes/services/RecipeService.java
+  visible: true
+  learner_created: true
+- name: src/recipes/services/impl/RecipeServiceImpl.java
+  visible: true
+  learner_created: true
+- name: src/recipes/services/impl/UserServiceImpl.java
+  visible: true
+  learner_created: true
+- name: test/recipes/services/impl/RecipeServiceImplTest.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/180/stages/921/implement#comment
 status: Failed
 feedback:
-  message: |-
-    Wrong answer in test #16
-
-    PUT /api/recipe/1 should respond with status code 204, responded: 200
-
-    Response body:
-    {&quot;updated&quot;:&quot;NO_CONTENT&quot;}
-
-    Please find below the output of your program during this failed test.
-
-    ---
-
-    .   ____          _            __ _ _
-     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
-    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
-     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
-     =========|_|==============|___/=/_/_/_/
-     :: Spring Boot ::        (v2.3.1.RELEASE)
-
-    2021-09-20 20:50:21.400  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication on AISIX2 with PID 5092 (started by Windows 10 in D:\Hyperskill\Recipes\Recipes\task)
-    2021-09-20 20:50:21.406  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : No active profile set, falling back to default profiles: default
-    2021-09-20 20:50:23.656  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-    2021-09-20 20:50:23.764  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96ms. Found 2 JPA repository interfaces.
-    2021-09-20 20:50:25.060  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8881 (http)
-    2021-09-20 20:50:25.081  INFO 5092 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-    2021-09-20 20:50:25.082  INFO 5092 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
-    2021-09-20 20:50:25.397  INFO 5092 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-    2021-09-20 20:50:25.397  INFO 5092 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3888 ms
-    2021-09-20 20:50:25.809  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-    2021-09-20 20:50:26.362  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-    2021-09-20 20:50:26.380  INFO 5092 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:file:../recipes_db&#39;
-    2021-09-20 20:50:26.787  INFO 5092 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
-    2021-09-20 20:50:27.146  INFO 5092 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-    2021-09-20 20:50:27.477  WARN 5092 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-    2021-09-20 20:50:27.503  INFO 5092 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
-    2021-09-20 20:50:27.990  INFO 5092 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-    2021-09-20 20:50:27.993  INFO 5092 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@586f5449, org.springframework.security.web.context.SecurityContextPersistenceFilter@71ab03bb, org.springframework.security.web.header.HeaderWriterFilter@7bcb4d45, org.springframework.security.web.authentication.logout.LogoutFilter@4cdc91c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4447af43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72082eeb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cd5a2f4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c73fdc2, org.springframework.security.web.session.SessionManagementFilter@7bafa40f, org.springframework.security.web.access.ExceptionTranslationFilter@128784e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13d697d3]
-    2021-09-20 20:50:28.433  INFO 5092 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-    2021-09-20 20:50:30.293  INFO 5092 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-    2021-09-20 20:50:30.309  INFO 5092 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;
-    2021-09-20 20:50:30.411  INFO 5092 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
-    2021-09-20 20:50:30.510  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;
-    2021-09-20 20:50:30.512  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-    2021-09-20 20:50:31.141  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-    2021-09-20 20:50:31.157  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication in 10.702 seconds (JVM running for 12.117)
-    2021-09-20 20:50:31.836  INFO 5092 --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
-    2021-09-20 20:50:31.836  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
-    2021-09-20 20:50:31.849  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-    2021-09-20 20:50:32.527  WARN 5092 --- [nio-8881-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-    2021-09-20 20:50:32.527 ERROR 5092 --- [nio-8881-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_OB8KQYQQGMEFL0ACO34AKDTPE_INDEX_2 ON PUBLIC.USER(EMAIL) VALUES 1&quot;; SQL statement:
-    insert into user (id, email, password, username) values (null, ?, ?, ?) [23505-200]
-    2021-09-20 20:50:32.978  WARN 5092 --- [nio-8881-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value [Test3@testcom]; codes [Email.user.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@5b906447,.+@.+\..+]; default message [User email is not correct]] ]
-    2021-09-20 20:50:33.009  WARN 5092 --- [nio-8881-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value [Test4test.com]; codes [Email.user.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@5b906447,.+@.+\..+]; default message [User email is not correct]] ]
-    2021-09-20 20:50:33.043  WARN 5092 --- [nio-8881-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected value [Test555]; codes [Size.user.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.password,password]; arguments []; default message [password],2147483647,8]; default message [Password must contain at least eight characters]] ]
-    2021-09-20 20:50:33.123  WARN 5092 --- [nio-8881-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User): [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected value [        ]; codes [NotBlank.user.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.password,password]; arguments []; default message [password]]; default message [must not be blank]] ]
-    2021-09-20 20:50:34.843  INFO 5092 --- [     Thread-336] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit &#39;default&#39;
-    2021-09-20 20:50:34.847  INFO 5092 --- [     Thread-336] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService &#39;applicationTaskExecutor&#39;
-    2021-09-20 20:50:34.851  INFO 5092 --- [     Thread-336] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-    2021-09-20 20:50:35.222  INFO 5092 --- [     Thread-336] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-
-      .   ____          _            __ _ _
-     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
-    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
-     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
-     =========|_|==============|___/=/_/_/_/
-     :: Spring Boot ::        (v2.3.1.RELEASE)
-
-    2021-09-20 20:50:35.396  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication on AISIX2 with PID 5092 (started by Windows 10 in D:\Hyperskill\Recipes\Recipes\task)
-    2021-09-20 20:50:35.396  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : No active profile set, falling back to default profiles: default
-    2021-09-20 20:50:36.130  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-    2021-09-20 20:50:36.151  INFO 5092 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 2 JPA repository interfaces.
-    2021-09-20 20:50:36.770  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8881 (http)
-    2021-09-20 20:50:36.773  INFO 5092 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-    2021-09-20 20:50:36.775  INFO 5092 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
-    2021-09-20 20:50:36.841  INFO 5092 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-    2021-09-20 20:50:36.841  INFO 5092 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1437 ms
-    2021-09-20 20:50:36.931  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-    2021-09-20 20:50:36.945  INFO 5092 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-    2021-09-20 20:50:36.945  INFO 5092 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:file:../recipes_db&#39;
-    2021-09-20 20:50:37.049  INFO 5092 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
-    2021-09-20 20:50:37.062  INFO 5092 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-    2021-09-20 20:50:37.075  INFO 5092 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-    2021-09-20 20:50:37.158  WARN 5092 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-    2021-09-20 20:50:37.207  INFO 5092 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79a1bbd7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fe06343, org.springframework.security.web.header.HeaderWriterFilter@215b8dda, org.springframework.security.web.authentication.logout.LogoutFilter@6cc1c2e5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@24a93d15, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44b1823a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3979e22b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a72d5f0, org.springframework.security.web.session.SessionManagementFilter@4c28b7f2, org.springframework.security.web.access.ExceptionTranslationFilter@470b8825, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@414bf3a6]
-    2021-09-20 20:50:37.451  INFO 5092 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-    2021-09-20 20:50:37.452  INFO 5092 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;
-    2021-09-20 20:50:37.633  INFO 5092 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
-    2021-09-20 20:50:37.659  INFO 5092 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;
-    2021-09-20 20:50:37.662  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-    2021-09-20 20:50:37.748  INFO 5092 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-    2021-09-20 20:50:37.755  INFO 5092 --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication in 2.469 seconds (JVM running for 18.711)
-    2021-09-20 20:50:37.764  INFO 5092 --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
-    2021-09-20 20:50:37.765  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
-    2021-09-20 20:50:37.770  INFO 5092 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-  time: Mon, 20 Sep 2021 17:50:39 UTC
+  message: "Wrong answer in test #16\n\nPUT /api/recipe/1 should respond with status\
+    \ code 204, responded: 500\n\nResponse body:\n{&quot;timestamp&quot;:&quot;2021-09-22T12:42:24.777+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal\
+    \ Server Error&quot;,&quot;message&quot;:&quot;&quot;,&quot;path&quot;:&quot;/api/recipe/1&quot;}\n\
+    \nPlease find below the output of your program during this failed test.\n\n---\n\
+    \n[last 250 lines of output are shown, 19 skipped]\n2021-09-22 15:42:15.428  INFO\
+    \ 9108 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1\
+    \ - Start completed.\n2021-09-22 15:42:15.442  INFO 9108 --- [    Test worker]\
+    \ o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at &#39;/h2-console&#39;.\
+    \ Database available at &#39;jdbc:h2:file:../recipes_db&#39;\n2021-09-22 15:42:15.658\
+    \  INFO 9108 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  :\
+    \ Initializing ExecutorService &#39;applicationTaskExecutor&#39;\n2021-09-22 15:42:15.805\
+    \  INFO 9108 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  :\
+    \ HHH000204: Processing PersistenceUnitInfo [name: default]\n2021-09-22 15:42:15.883\
+    \  WARN 9108 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration :\
+    \ spring.jpa.open-in-view is enabled by default. Therefore, database queries may\
+    \ be performed during view rendering. Explicitly configure spring.jpa.open-in-view\
+    \ to disable this warning\n2021-09-22 15:42:15.942  INFO 9108 --- [         task-1]\
+    \ org.hibernate.Version                    : HHH000412: Hibernate ORM core version\
+    \ 5.4.17.Final\n2021-09-22 15:42:16.228  INFO 9108 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain\
+    \     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7469b346,\
+    \ org.springframework.security.web.context.SecurityContextPersistenceFilter@4a8348fe,\
+    \ org.springframework.security.web.header.HeaderWriterFilter@39fe5d8c, org.springframework.security.web.authentication.logout.LogoutFilter@72c7405b,\
+    \ org.springframework.security.web.authentication.www.BasicAuthenticationFilter@43f81798,\
+    \ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d21097c,\
+    \ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56685fd8,\
+    \ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4de4e23a,\
+    \ org.springframework.security.web.session.SessionManagementFilter@52ae89d6, org.springframework.security.web.access.ExceptionTranslationFilter@4a73dca7,\
+    \ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@63f2ddf3]\n\
+    2021-09-22 15:42:16.229  INFO 9108 --- [         task-1] o.hibernate.annotations.common.Version\
+    \   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}\n2021-09-22 15:42:16.503\
+    \  INFO 9108 --- [         task-1] org.hibernate.dialect.Dialect            :\
+    \ HHH000400: Using dialect: org.hibernate.dialect.H2Dialect\n2021-09-22 15:42:18.004\
+    \  INFO 9108 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       :\
+    \ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]\n\
+    2021-09-22 15:42:18.015  INFO 9108 --- [         task-1] j.LocalContainerEntityManagerFactoryBean\
+    \ : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;\n\
+    2021-09-22 15:42:18.110  INFO 9108 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver\
+    \      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;\n2021-09-22\
+    \ 15:42:18.187  INFO 9108 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer\
+    \  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;\n2021-09-22\
+    \ 15:42:18.190  INFO 9108 --- [    Test worker] DeferredRepositoryInitializationListener\
+    \ : Triggering deferred initialization of Spring Data repositories…\n2021-09-22\
+    \ 15:42:18.701  INFO 9108 --- [    Test worker] DeferredRepositoryInitializationListener\
+    \ : Spring Data repositories initialized!\n2021-09-22 15:42:18.723  INFO 9108\
+    \ --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication\
+    \ in 7.483 seconds (JVM running for 8.745)\n2021-09-22 15:42:19.257  INFO 9108\
+    \ --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing\
+    \ Spring DispatcherServlet &#39;dispatcherServlet&#39;\n2021-09-22 15:42:19.257\
+    \  INFO 9108 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        :\
+    \ Initializing Servlet &#39;dispatcherServlet&#39;\n2021-09-22 15:42:19.271  INFO\
+    \ 9108 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed\
+    \ initialization in 14 ms\n2021-09-22 15:42:19.897  WARN 9108 --- [nio-8881-exec-2]\
+    \ o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505\n\
+    2021-09-22 15:42:19.897 ERROR 9108 --- [nio-8881-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper\
+    \   : Unique index or primary key violation: &quot;PUBLIC.UK_6DOTKOTT2KJSP8VW4D0M25FB7_INDEX_4\
+    \ ON PUBLIC.USERS(EMAIL) VALUES 1&quot;; SQL statement:\ninsert into users (id,\
+    \ email, password, username) values (null, ?, ?, ?) [23505-200]\n2021-09-22 15:42:20.197\
+    \  WARN 9108 --- [nio-8881-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver :\
+    \ Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation\
+    \ failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User):\
+    \ [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value\
+    \ [Test3@testcom]; codes [Email.user.email,Email.email,Email.java.lang.String,Email];\
+    \ arguments [org.springframework.context.support.DefaultMessageSourceResolvable:\
+    \ codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@1d813ed7,.+@.+\\\
+    ..+]; default message [User email is not correct]] ]\n2021-09-22 15:42:20.211\
+    \  WARN 9108 --- [nio-8881-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver :\
+    \ Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation\
+    \ failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User):\
+    \ [Field error in object &#39;user&#39; on field &#39;email&#39;: rejected value\
+    \ [Test4test.com]; codes [Email.user.email,Email.email,Email.java.lang.String,Email];\
+    \ arguments [org.springframework.context.support.DefaultMessageSourceResolvable:\
+    \ codes [user.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@1d813ed7,.+@.+\\\
+    ..+]; default message [User email is not correct]] ]\n2021-09-22 15:42:20.227\
+    \  WARN 9108 --- [nio-8881-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver :\
+    \ Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation\
+    \ failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User):\
+    \ [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected\
+    \ value [Test555]; codes [Size.user.password,Size.password,Size.java.lang.String,Size];\
+    \ arguments [org.springframework.context.support.DefaultMessageSourceResolvable:\
+    \ codes [user.password,password]; arguments []; default message [password],2147483647,8];\
+    \ default message [Password must contain at least eight characters]] ]\n2021-09-22\
+    \ 15:42:20.262  WARN 9108 --- [nio-8881-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver\
+    \ : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation\
+    \ failed for argument [0] in public void recipes.controllers.UserController.register(recipes.models.User):\
+    \ [Field error in object &#39;user&#39; on field &#39;password&#39;: rejected\
+    \ value [        ]; codes [NotBlank.user.password,NotBlank.password,NotBlank.java.lang.String,NotBlank];\
+    \ arguments [org.springframework.context.support.DefaultMessageSourceResolvable:\
+    \ codes [user.password,password]; arguments []; default message [password]]; default\
+    \ message [must not be blank]] ]\n2021-09-22 15:42:21.818  INFO 9108 --- [   \
+    \  Thread-336] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory\
+    \ for persistence unit &#39;default&#39;\n2021-09-22 15:42:21.818  INFO 9108 ---\
+    \ [     Thread-336] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService\
+    \ &#39;applicationTaskExecutor&#39;\n2021-09-22 15:42:21.818  INFO 9108 --- [\
+    \     Thread-336] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown\
+    \ initiated...\n2021-09-22 15:42:22.319  INFO 9108 --- [     Thread-336] com.zaxxer.hikari.HikariDataSource\
+    \       : HikariPool-1 - Shutdown completed.\n\n  .   ____          _        \
+    \    __ _ _\n /\\\\ / ___&#39;_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ |\
+    \ &#39;_ | &#39;_| | &#39;_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | ||\
+    \ (_| |  ) ) ) )\n  &#39;  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n\
+    \ :: Spring Boot ::        (v2.3.1.RELEASE)\n\n2021-09-22 15:42:22.457  INFO 9108\
+    \ --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication\
+    \ on AISIX2 with PID 9108 (started by Windows 10 in D:\\Hyperskill\\Recipes\\\
+    Recipes\\task)\n2021-09-22 15:42:22.457  INFO 9108 --- [    Test worker] recipes.RecipesApplication\
+    \               : No active profile set, falling back to default profiles: default\n\
+    2021-09-22 15:42:23.074  INFO 9108 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate\
+    \ : Bootstrapping Spring Data JPA repositories in DEFERRED mode.\n2021-09-22 15:42:23.090\
+    \  INFO 9108 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate :\
+    \ Finished Spring Data repository scanning in 14ms. Found 2 JPA repository interfaces.\n\
+    2021-09-22 15:42:23.280  INFO 9108 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer\
+    \  : Tomcat initialized with port(s): 8881 (http)\n2021-09-22 15:42:23.282  INFO\
+    \ 9108 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting\
+    \ service [Tomcat]\n2021-09-22 15:42:23.283  INFO 9108 --- [    Test worker] org.apache.catalina.core.StandardEngine\
+    \  : Starting Servlet engine: [Apache Tomcat/9.0.36]\n2021-09-22 15:42:23.329\
+    \  INFO 9108 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       :\
+    \ Initializing Spring embedded WebApplicationContext\n2021-09-22 15:42:23.330\
+    \  INFO 9108 --- [    Test worker] w.s.c.ServletWebServerApplicationContext :\
+    \ Root WebApplicationContext: initialization completed in 858 ms\n2021-09-22 15:42:23.419\
+    \  INFO 9108 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       :\
+    \ HikariPool-2 - Starting...\n2021-09-22 15:42:23.434  INFO 9108 --- [    Test\
+    \ worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.\n\
+    2021-09-22 15:42:23.434  INFO 9108 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration\
+    \    : H2 console available at &#39;/h2-console&#39;. Database available at &#39;jdbc:h2:file:../recipes_db&#39;\n\
+    2021-09-22 15:42:23.518  INFO 9108 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor\
+    \  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;\n2021-09-22\
+    \ 15:42:23.523  INFO 9108 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper\
+    \  : HHH000204: Processing PersistenceUnitInfo [name: default]\n2021-09-22 15:42:23.536\
+    \  INFO 9108 --- [         task-1] org.hibernate.dialect.Dialect            :\
+    \ HHH000400: Using dialect: org.hibernate.dialect.H2Dialect\n2021-09-22 15:42:23.608\
+    \  WARN 9108 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration :\
+    \ spring.jpa.open-in-view is enabled by default. Therefore, database queries may\
+    \ be performed during view rendering. Explicitly configure spring.jpa.open-in-view\
+    \ to disable this warning\n2021-09-22 15:42:23.730  INFO 9108 --- [         task-1]\
+    \ o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation:\
+    \ [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]\n2021-09-22\
+    \ 15:42:23.732  INFO 9108 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain\
+    \     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f7bccf0,\
+    \ org.springframework.security.web.context.SecurityContextPersistenceFilter@2f355c03,\
+    \ org.springframework.security.web.header.HeaderWriterFilter@493ab7b4, org.springframework.security.web.authentication.logout.LogoutFilter@2ba26673,\
+    \ org.springframework.security.web.authentication.www.BasicAuthenticationFilter@669700eb,\
+    \ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74e733e7,\
+    \ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@687cadd8,\
+    \ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@47a84378,\
+    \ org.springframework.security.web.session.SessionManagementFilter@2b5db2a7, org.springframework.security.web.access.ExceptionTranslationFilter@4cd2fb71,\
+    \ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6fe117a2]\n\
+    2021-09-22 15:42:23.764  INFO 9108 --- [         task-1] j.LocalContainerEntityManagerFactoryBean\
+    \ : Initialized JPA EntityManagerFactory for persistence unit &#39;default&#39;\n\
+    2021-09-22 15:42:24.011  INFO 9108 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver\
+    \      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;\n2021-09-22\
+    \ 15:42:24.042  INFO 9108 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer\
+    \  : Tomcat started on port(s): 8881 (http) with context path &#39;&#39;\n2021-09-22\
+    \ 15:42:24.042  INFO 9108 --- [    Test worker] DeferredRepositoryInitializationListener\
+    \ : Triggering deferred initialization of Spring Data repositories…\n2021-09-22\
+    \ 15:42:24.120  INFO 9108 --- [    Test worker] DeferredRepositoryInitializationListener\
+    \ : Spring Data repositories initialized!\n2021-09-22 15:42:24.129  INFO 9108\
+    \ --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication\
+    \ in 1.77 seconds (JVM running for 14.151)\n2021-09-22 15:42:24.138  INFO 9108\
+    \ --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing\
+    \ Spring DispatcherServlet &#39;dispatcherServlet&#39;\n2021-09-22 15:42:24.138\
+    \  INFO 9108 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        :\
+    \ Initializing Servlet &#39;dispatcherServlet&#39;\n2021-09-22 15:42:24.143  INFO\
+    \ 9108 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed\
+    \ initialization in 4 ms\n2021-09-22 15:42:24.747 ERROR 9108 --- [nio-8881-exec-3]\
+    \ o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet]\
+    \ in context with path [] threw exception [Request processing failed; nested exception\
+    \ is java.lang.NullPointerException] with root cause\n\njava.lang.NullPointerException:\
+    \ null\n\tat recipes.services.impl.RecipeServiceImpl.updateRecipe(RecipeServiceImpl.java:64)\
+    \ ~[main/:na]\n\tat recipes.controllers.RecipeController.updateRecipe(RecipeController.java:45)\
+    \ ~[main/:na]\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native\
+    \ Method) ~[na:na]\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\
+    \ ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:663)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\
+    \ ~[spring-webmvc-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:741)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat jdk.internal.reflect.GeneratedMethodAccessor61.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:170)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:225)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)\
+    \ ~[tomcat-embed-websocket-9.0.36.jar:9.0.36]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:204)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)\
+    \ ~[spring-security-web-5.3.3.RELEASE.jar:5.3.3.RELEASE]\n\tat org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)\
+    \ ~[spring-boot-actuator-2.3.1.RELEASE.jar:2.3.1.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\
+    \ ~[spring-web-5.2.7.RELEASE.jar:5.2.7.RELEASE]\n\tat jdk.internal.reflect.GeneratedMethodAccessor55.invoke(Unknown\
+    \ Source) ~[na:na]\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+    \ ~[na:na]\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:282) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat org.apache.catalina.security.SecurityUtil$1.run(SecurityUtil.java:279) ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\
+    \tat java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]\n\
+    \tat java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:550) ~[na:na]\n\
+    \tat org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:314)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:253)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:191)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain.access$000(ApplicationFilterChain.java:47)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:149)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.ApplicationFilterChain$1.run(ApplicationFilterChain.java:145)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.security.AccessController.doPrivileged(Native\
+    \ Method) ~[na:na]\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\
+    \ ~[na:na]\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\
+    \ ~[na:na]\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\
+    \ ~[tomcat-embed-core-9.0.36.jar:9.0.36]\n\tat java.base/java.lang.Thread.run(Thread.java:829)\
+    \ ~[na:na]"
+  time: Wed, 22 Sep 2021 12:42:25 UTC
 record: -1

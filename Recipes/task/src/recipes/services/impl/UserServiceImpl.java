@@ -1,4 +1,4 @@
-package recipes.services;
+package recipes.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -13,24 +13,22 @@ import recipes.repositorys.UserRepository;
 import recipes.models.User;
 
 @Service
-public class UserDetailService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService {
+
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
 
     @Autowired
-    public UserDetailService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.encoder = encoder;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        try{
-           return userRepository.findByUsername(username);
-        }
-        catch (UsernameNotFoundException e){
-            throw new UsernameNotFoundException(String.format("No user %s found", username));
-        }
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        String.format("No user %s found", username)));
     }
 
     public Long registerNewUser(String username, String password) {
